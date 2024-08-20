@@ -29,36 +29,48 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  if (variables.name == null) variables.name = "Lucy";
-
-  if (variables.lastName == null) variables.lastName = "Boilett";
-
-  if (variables.role == null) variables.role = "Web Developer";
-
-  if (variables.twitter == null) variables.twitter = "4geeksacademy";
-
-  if (variables.github == null) variables.github = "4geeksacademy";
-
-  if (variables.linkedin == null) variables.linkedin = "school/4geeksacademy";
-
-  if (variables.instagram == null) variables.instagram = "4geeksacademy";
-
-  if (variables.city == null) variables.city = "Miami";
-
-  if (variables.country == null) variables.country = "USA";
-
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name} ${variables.lastName}</h1>
-          <h2>${variables.role}</h2>
-          <h3>${variables.city}, ${variables.country}</h3>
+          <h1>${
+            variables.name == null ? (variables.name = "Lucy") : variables.name
+          } ${
+    variables.lastName == null
+      ? (variables.lastName = "Boilett")
+      : variables.lastName
+  }</h1>
+          <h2>${
+            variables.role == null
+              ? (variables.role = "Web Developer")
+              : variables.role
+          }</h2>
+          <h3>${
+            variables.city == null ? (variables.city = "Miami") : variables.city
+          }, ${
+    variables.country == null ? (variables.country = "USA") : variables.country
+  }</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${
+              variables.twitter == null
+                ? (variables.twitter = "4geeksacademy")
+                : (variables.twitter = variables.twitter)
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github == null
+                ? (variables.github = "4geeksacademy")
+                : (variables.github = variables.github)
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin == null
+                ? (variables.linkedin = "school/4geeksacademy")
+                : (variables.linkedin = variables.linkedin)
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram == null
+                ? (variables.instagram = "4geeksacademy")
+                : (variables.instagram = variables.instagram)
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
